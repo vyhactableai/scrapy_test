@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  scrapyd:
+    container_name: scrapyd
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: docker-scrapyd
+    ports:
+      - 6800:6800
+    volumes:
+      - ../:/opt/scrapy_project
+      - /opt/scrapyd:/opt/scrapyd
+    networks:
+      dagster_pipeline_network:
+        ipv4_address: 172.23.0.2
+
+networks:
+  dagster_pipeline_network:
+    driver: bridge
+    name: dagster_pipeline_network
+    ipam:
+      config:
+        - subnet: 172.23.0.0/16
+          gateway: 172.23.0.1
