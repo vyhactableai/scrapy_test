@@ -10,16 +10,16 @@ services:
     ports:
       - 6800:6800
     volumes:
-      - ../:/opt/scrapy_project
+      - /root/projects/scrapy_test:/opt/scrapy_project
       - /opt/scrapyd:/opt/scrapyd
     networks:
-      dagster_pipeline_network:
+      atb_dagster_network:
         ipv4_address: 172.23.0.2
 
 networks:
-  dagster_pipeline_network:
+  atb_dagster_network:
     driver: bridge
-    name: dagster_pipeline_network
+    name: atb_dagster_network
     ipam:
       config:
         - subnet: 172.23.0.0/16
