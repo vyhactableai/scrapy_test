@@ -10,7 +10,7 @@ services:
     ports:
       - 6800:6800
     volumes:
-      - /root/projects/scrapy_test:/opt/scrapy_project
+      - /root/projects/scrapy_projects:/opt/scrapy_projects
       - /opt/scrapyd:/opt/scrapyd
     networks:
       atb_dagster_network:
