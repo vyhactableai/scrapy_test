@@ -91,11 +91,4 @@ ROBOTSTXT_OBEY = True
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
-FEEDS = {
-    "s3://test-crawled-data/%(name)s/%(id)s_%(time)s.jl": { "format": "jsonlines"}
-}
-AWS_ENDPOINT_URL = "http://lake-api.actable.ai:9000/"
-AWS_ACCESS_KEY_ID = "9zTeMQWwQiGhbKvMJ7uq"
-AWS_SECRET_ACCESS_KEY = "Xlo4kjpkJH1TSCmJaOfZbeKLVmhRKNkV3j6Xqb32"
-AWS_USE_SSL = False
-AWS_VERIFY = False
+FEED_EXPORT_BATCH_ITEM_COUNT = 10000

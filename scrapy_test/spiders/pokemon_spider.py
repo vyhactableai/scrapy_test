@@ -14,15 +14,21 @@ class PokemonSpider(Spider):
         }
     }
 
-    def __init__(self, bucket_name, *args, **kwargs):
+    def __init__(
+            self,
+            bucket_name: str,
+            published_date: str,
+            *args,
+            **kwargs):
         self.job_id = kwargs.get('_job')
         self.bucket_name = bucket_name
+        self.published_date = published_date
         super(PokemonSpider, self).__init__(*args, **kwargs)
  
     # parse HTML page as response
     def parse(self, response):
         # extract text content from the ul element
-        self.log(self.custom_settings)
+        self.logger.info(f"Published date: {self.published_date}")
         products = response.css('ul.products li.product')
  
         for product in products:
@@ -36,9 +42,4 @@ class PokemonSpider(Spider):
                 'price': price,
             }
 
-            # log extracted text
-            self.log(data)
             yield data
-
- 
-
