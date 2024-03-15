@@ -6,7 +6,7 @@ ENV PYTHONUNBUFFERED 1
 
 RUN set -ex && apk --no-cache --virtual .build-deps add build-base g++ bash curl gcc libgcc tzdata psutils linux-headers openssl-dev
 
-RUN pip install pip==24.0
+RUN pip install --upgrade pip
 COPY ./requirements.txt /
 RUN pip install -r requirements.txt
 
