@@ -1,6 +1,7 @@
 # import the required modules
 import os
 from datetime import datetime
+from lorem_text import lorem
 from scrapy.spiders import Spider
  
 class PokemonSpider(Spider):
@@ -40,6 +41,7 @@ class PokemonSpider(Spider):
             data = {
                 'product_name': product_name,
                 'price': price,
+                'content': lorem.paragraphs(5)
             }
 
             yield data
